@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ball animate</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row" style="margin:100px;">
+      <div class="col-md-2">
+        <div class="form-group row">
+          <label for="posX" class="col-sm-2 col-form-label">X</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="posX" value="35">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="posY" class="col-sm-2 col-form-label">Y</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="posY" value="50">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="radius" class="col-sm-2 col-form-label">R</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="radius" value="30">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="dx" class="col-sm-2 col-form-label">dx</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="dx" value="2">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="dy" class="col-sm-2 col-form-label">dy</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="dy" value="3">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="dt" class="col-sm-2 col-form-label">dt</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="dt" value="40">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="t" class="col-sm-2 col-form-label">t</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="t" value="5">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="k" class="col-sm-2 col-form-label">k</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="k" value="0.9">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button class="btn btn-primary" onclick="drawAnimate()">Go!</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <canvas id="canvas" width="1000" height="500"></canvas>
+      </div>
+    </div>
+    <div class="container">
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Лог</label>
+        <textarea class="form-control" id="log" rows="7"></textarea>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
