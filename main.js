@@ -38,7 +38,6 @@ function drawAnimate() {
     return ;
   }
   let ball = new Ball(x, y, radius,dx,dy,k,color);
-  console.log(color);
   let logX = ball.x;
   let logY = ball.y;
   log = setInterval(function() {
@@ -117,7 +116,6 @@ class Ball {
 let circle = function(x, y, radius, fillCircle, color) {
   ctx.beginPath();
   ctx.arc(x, y, radius, 0, Math.PI * 2, false);
-  console.log(color);
   ctx.fillStyle = color;
   if (fillCircle) {
     ctx.fill();
