@@ -35,20 +35,16 @@ function drawAnimate() {
     alert("K должен быть от (0 до 1]")
     return ;
   }
-  //const my_G = (G/1000)*dt;
   let ball = new Ball(x, y, radius,dx,dy,k);
   let logX = ball.x;
   let logY = ball.y;
-  //console.log(ball);
   log = setInterval(function() {
-    //console.log("t"+i+": ("+logX+", "+logY+") -> ("+ball.x+", "+ball.y+")");
     document.getElementById('log').value += "t"+i+": ("+logX+", "+logY+") -> ("+ball.x+", "+ball.y+")"+"\n";
     logX=ball.x;
     logY=ball.y;
     i++;
   },dt);
   anim = setInterval(function() {
-    //console.log(ball);
     ctx.clearRect(0, 0, width, height);
     ball.draw();
     ball.move();
@@ -89,11 +85,13 @@ class Ball {
       this.x=this.radius;
       this.xSpeed = -this.xSpeed;
       this.ySpeed*=this.k;
+      this.xSpeed*=0.5;
     }
     if ((this.x + this.radius) > width){
       this.x=width-this.radius;
       this.xSpeed = -this.xSpeed;
       this.ySpeed*=this.k;
+      this.xSpeed*=0.5;
     }
     if (this.y - this.radius < 0)  {
       this.y=this.radius;
