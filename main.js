@@ -23,6 +23,7 @@ function drawAnimate() {
   let dt = parseInt(document.getElementById("dt").value);
   let t = parseFloat(document.getElementById("t").value)*1000;
   let k = parseFloat(document.getElementById("k").value);
+  let color = document.getElementById("color").value;
 
   if ((x - radius) < 0 || ((2*radius) > width) || ((x+radius) > width)){
     alert("Невозможные координаты X или R");
@@ -36,7 +37,8 @@ function drawAnimate() {
     alert("K должен быть от (0 до 1]")
     return ;
   }
-  let ball = new Ball(x, y, radius,dx,dy,k);
+  let ball = new Ball(x, y, radius,dx,dy,k,color);
+  console.log(color);
   let logX = ball.x;
   let logY = ball.y;
   log = setInterval(function() {
@@ -64,17 +66,18 @@ function drawAnimate() {
   }
 
 class Ball {
-  constructor(x, y, radius,dx,dy,k) {
+  constructor(x, y, radius,dx,dy,k,color) {
     this.x = x;
     this.y = y;
     this.radius = radius;
     this.xSpeed = dx;
     this.ySpeed = dy;
     this.k=k;
+    this.color=color;
   }
 
   draw() {
-    circle(this.x, this.y, this.radius, true);
+    circle(this.x, this.y, this.radius, true,this.color);
   }
 
   move() {
@@ -111,9 +114,11 @@ class Ball {
 
 }
 
-let circle = function(x, y, radius, fillCircle) {
+let circle = function(x, y, radius, fillCircle, color) {
   ctx.beginPath();
   ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+  console.log(color);
+  ctx.fillStyle = color;
   if (fillCircle) {
     ctx.fill();
   } else {
