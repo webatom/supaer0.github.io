@@ -13,6 +13,7 @@ function drawAnimate() {
     ctx.clearRect(0, 0, width, height);
     i=0;
     document.getElementById('log').value ="";
+    document.getElementById('log2').value ="";
   }
   let x = parseInt(document.getElementById("posX").value);
   let y = parseInt(document.getElementById("posY").value);
@@ -40,6 +41,7 @@ function drawAnimate() {
   let logY = ball.y;
   log = setInterval(function() {
     document.getElementById('log').value += "t"+i+": ("+logX+", "+logY+") -> ("+ball.x+", "+ball.y+")"+"\n";
+    document.getElementById('log2').value += "Высота:"+(height-ball.y-ball.radius)+"; скорость: "+Math.sqrt(Math.pow(ball.xSpeed,2)+Math.pow(ball.ySpeed,2))+"\n";
     logX=ball.x;
     logY=ball.y;
     i++;
