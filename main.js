@@ -55,7 +55,7 @@ function drawAnimate() {
     document.getElementById('log2').value += "Высота:"+(ballHeight)+"; скорость: "+Math.sqrt(Math.pow(ball.xSpeed,2)+Math.pow(ball.ySpeed,2))+"\n";
     logX=ball.x;
     logY=ball.y;
-	console.log(""+logX/2+ "; " + (height1-(ballHeight/2)));
+	//console.log(""+logX/2+ "; " + (height1-(ballHeight/2)));
     ctx1.lineTo(logX/2,height1-(ballHeight/2));
     i++;
   },dt);
