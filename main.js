@@ -1,10 +1,14 @@
-const G = 9.8;
+﻿const G = 9.8;
 let i = 0;
 
 let canvas = document.getElementById("canvas");
+let canvas1 = document.getElementById("graphik");
+let ctx1 = canvas1.getContext("2d");
 let ctx = canvas.getContext("2d");
 let width = canvas.width;
 let height = canvas.height;
+let width1 = canvas1.width;
+let height1 = canvas1.height;
 
 function drawAnimate() {
   if (typeof anim != "undefined"){
@@ -14,6 +18,7 @@ function drawAnimate() {
     i=0;
     document.getElementById('log').value ="";
     document.getElementById('log2').value ="";
+	ctx1.clearRect(0, 0, width1, height1);
   }
   let x = parseInt(document.getElementById("posX").value);
   let y = parseInt(document.getElementById("posY").value);
@@ -40,11 +45,18 @@ function drawAnimate() {
   let ball = new Ball(x, y, radius,dx,dy,k,color);
   let logX = ball.x;
   let logY = ball.y;
+  ctx1.beginPath();
+  //ctx1.moveTo(0, height1-logY*2);
+  ctx1.strokeRect(0, 0, width1, height1);
   log = setInterval(function() {
+	let ballHeight = height-ball.y-ball.radius;
+	ctx1.stroke();
     document.getElementById('log').value += "t"+i+": ("+logX+", "+logY+") -> ("+ball.x+", "+ball.y+")"+"\n";
-    document.getElementById('log2').value += "Высота:"+(height-ball.y-ball.radius)+"; скорость: "+Math.sqrt(Math.pow(ball.xSpeed,2)+Math.pow(ball.ySpeed,2))+"\n";
+    document.getElementById('log2').value += "Высота:"+(ballHeight)+"; скорость: "+Math.sqrt(Math.pow(ball.xSpeed,2)+Math.pow(ball.ySpeed,2))+"\n";
     logX=ball.x;
     logY=ball.y;
+	console.log(""+logX/2+ "; " + (height1-(ballHeight/2)));
+    ctx1.lineTo(logX/2,height1-(ballHeight/2));
     i++;
   },dt);
   anim = setInterval(function() {
@@ -60,7 +72,7 @@ function drawAnimate() {
   setTimeout(function() {
       clearInterval(anim);
       clearInterval(log);
-      i=0;
+	  i=0;
   }, t);
   }
 
